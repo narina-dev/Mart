@@ -46183,25 +46183,26 @@ var render = function() {
                     key: message.id,
                     staticClass: "col-12",
                     class: {
-                      "text-right": message.sender_id !== _vm.chatUserID
+                      "text-right": message.sender_id !== _vm.chatUserID,
+                      primary: message.sender_id !== _vm.chatUserID
                     }
                   },
                   [
-                    _c("small", [
-                      _vm._v(
-                        _vm._s(message.sender.name) +
-                          " at " +
-                          _vm._s(message.created_at)
-                      )
-                    ]),
+                    _c("small", [_vm._v(" " + _vm._s(message.created_at))]),
                     _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(message.message) +
-                          "\n                        "
-                      )
-                    ])
+                    _c(
+                      "span",
+                      {
+                        staticClass: "mt-1",
+                        class: {
+                          "badge badge-primary":
+                            message.sender_id !== _vm.chatUserID,
+                          "badge badge-success":
+                            message.sender_id === _vm.chatUserID
+                        }
+                      },
+                      [_c("h5", [_vm._v("  " + _vm._s(message.message))])]
+                    )
                   ]
                 )
               }),
@@ -58790,8 +58791,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\Projects\Laravel\Mart\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! G:\Projects\Laravel\Mart\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! B:\Projects\Laravel\Mart\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! B:\Projects\Laravel\Mart\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

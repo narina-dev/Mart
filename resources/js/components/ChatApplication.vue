@@ -17,11 +17,11 @@
                 <div v-show="chatOpen && !loadingMessages">
                     <div class="row" style="max-height: 50vh; overflow: scroll; padding-bottom: 50px" ref="messageBox">
                         <div class="col-12" v-for="message in messages" :key="message.id"
-                             :class="{'text-right': message.sender_id !== chatUserID}">
-                            <small>{{ message.sender.name }} at {{ message.created_at }}</small>
-                            <p>
-                                {{ message.message }}
-                            </p>
+                             :class="{'text-right': message.sender_id !== chatUserID,'primary': message.sender_id !== chatUserID}">
+                            <small> {{ message.created_at }}</small>
+                            <span class="mt-1"  :class="{'badge badge-primary': message.sender_id !== chatUserID,'badge badge-success': message.sender_id === chatUserID}">
+                              <h5>  {{ message.message }}</h5>
+                            </span>
                         </div>
                     </div>
                     <div class="row">
@@ -123,6 +123,7 @@
         })
       },
       sendMessage () {
+       
         let app = this
         if (app.newMessage !== '') {
           axios.post('api/messages/send', {

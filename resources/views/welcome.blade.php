@@ -7,19 +7,37 @@
 <div class="container" id="content_area">
 
 
-    <div class="row">
+    <div class="row" class="list-group-item list-group-item-action active">
+       
         <div class="col-md-3 my-2">
-            <h6 class="ml-1">Categories</h6>
+            <ul>
+
+            </ul>
             <div class="list-group">
-                @foreach($categories as $category)
+                <ul class = "categories-menu" style="list-style-type:none">
+                    <li class="list-group-item list-group-item-dark">Categories</li>
+                    @foreach($categories as $category)
 
-                <a href="{{url('welcome/'.$category->id)}}"
-                    class="list-group-item list-group-item-action">{{$category->name}}</a>
+                    <a href="{{url('welcome/'.$category->id)}}" 
+                        class="list-group-item list-group-item-action "><li>{{$category->name}}</li> </a>
 
-                @endforeach
+                       
+                    @endforeach
 
             </div>
+            </ul>
         </div>
+
+        <script>
+        $function(){
+            $('.categories-menu > li').click(function(){
+                $('.categories-menu > li').removeClass('active');
+                $(this).addClass('active');
+            });
+        };
+        </script>
+
+
         <div class="col-md-9 mt-4">
             <form class="form-inline my-2" method="POST" action="{{route('welcome.search')}}">
                 @csrf
@@ -61,4 +79,8 @@
 {{-- <script src="{{ asset('plugins/vue/vue.min.js') }}" ></script> --}}
 
 
+
+
 @endsection
+
+

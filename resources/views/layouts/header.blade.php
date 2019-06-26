@@ -7,11 +7,12 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="userID" content="{{ Auth::id()}}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('plugins/axios/axios.min.js') }}"></script>
 
 
@@ -20,18 +21,27 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     {{-- <link rel="stylesheet" href="style.css"> --}}
+    <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
+    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+
+    <!-- custom styling for all icons -->
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+ 
+    
 
 
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
-    <div id="app">
+    <div id="app" class="main-container">
 
         <nav class="navbar navbar-expand-lg navbar-dark fixed" style="background-color:#2f353a;">
 
@@ -52,12 +62,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('product.create')}}">Sell</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Wishlist</a>
-                        </li>
+
                         @if(!Auth::check())
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register')}}">Register</a>
+                            <a class="nav-link" href="{{ route('register')}}">Register </a>
                         </li>
                         @endif
                         @if(Auth::check())
@@ -65,8 +73,11 @@
                             <a class="nav-link" href="{{ route('profile')}}">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('posts')}}">Posts</a>
+                            <a class="nav-link" href="{{route('posts')}}">My Posts</a>
                         </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{route('changepassword')}}">Change Password</a>
+                            </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -79,8 +90,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link ml-5 text-primary" href="#"><i class="fa fa-user-circle"
-                                    aria-hidden="true"></i>
+                            <a class="nav-link ml-5 text-primary" href="{{ route('profile')}}"><i
+                                    class="fa fa-user-circle" aria-hidden="true"></i>
 
                                 {{ Auth::user()->name }}</a>
                         </li>
@@ -95,6 +106,11 @@
         </main>
 
     </div>
+    
+    @include('layouts.footer')
+
 </body>
+
+
 
 </html>

@@ -147,6 +147,7 @@ class ProductsController extends Controller
 
     }
 
+    
     public function displayCategoryProducts($cat){
 
         $products=Product::where('category_id',$cat)->get();

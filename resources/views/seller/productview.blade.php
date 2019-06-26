@@ -11,8 +11,8 @@
 </style>
 
 <div class="container py-3">
-    <div class="row justify-content-center">
-        <div class="col-md-4">
+    <div class="row">
+        <div class="col-md-4 ">
             <div class="card" style="width: 18rem;">
                 <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -27,7 +27,7 @@
                         @foreach($product->images as $key=> $image)
 
                         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                            <img src="{{ '/images/'.$product->images[$key]->url }}" class="card-img-top"
+                            <img src="{{ '/images/'.$product->images[$key]->url }}" class="card-img-top "
                                 alt="some image" height="200">
 
 
@@ -52,9 +52,12 @@
             </div>
         </div>
 
-        <div class="col-md-8">
-            <h4>Product Name</h4>
-            <br>
+        <div class="col-md-8 ">
+            <h4 class="text-default">Product Name</h4>
+            
+            <p>
+                {{$product->name}}
+            </p>
 
             <!-- product description -->
             <h4 class="text-default">Product Description</h4>
@@ -62,7 +65,7 @@
                 {{$product->description}}
             </p>
             <!-- sellers contact information -->
-            <h4>Contact info:</h4>
+            <h4 class="text">Seller Contact Information:</h4>
             <p>
                 <h5 class="text-default">Phone Number:</h5>
                 <p>
@@ -72,13 +75,19 @@
                 <p>
                     {{ Auth::user()->name}}
                 </p>
+                <h5 class="text-default">Location:</h5>
+                <p>
+                    {{ $product->location}}
+                </p>
             </p>
+            <div>
             <a href="{{url('home')}}">
-            <i class="fa fa-chat">
+                <i class="fa fa-2x fa-commenting" aria-hidden="true"></i>
                 chat
 
             </i>
         </a>
+            </div>
         </div>
     </div>
 </div>

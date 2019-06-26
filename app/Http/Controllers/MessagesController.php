@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\MessageSent;
+// use App\Events\MessageSent;
 use App\Http\Controllers\Controller;
 use App\Message;
 use Illuminate\Http\Request;
@@ -46,7 +46,7 @@ class MessagesController extends Controller
             'message' => $request->input('message'),
         ]);
 
-        broadcast(new MessageSent($message));
+        // broadcast(new MessageSent($message));
 
         return $message->fresh();
 
