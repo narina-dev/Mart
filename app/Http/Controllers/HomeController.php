@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Notifications\SendMail;
 use Illuminate\Support\Facades\Auth;
+// use PDF;
+use Barryvdh\DomPDF\Facade as PDF;
+use App\Product;
+
 
 class HomeController extends Controller
 {
@@ -48,11 +52,18 @@ class HomeController extends Controller
 
     public function generatePDF()
     {
-        $data = ['title' => 'Welcome to HDTuto.com'];
-        $pdf = PDF::loadView('myPDF', $data);
+
+        return view('myPDF');
+        // $data = ['title' => 'Welcome to Egermatt.com'];
+
+        // $products=Product::where('user_id',Auth::id())->get();
+        // $pdf = PDF::loadView('myPDF', ['user'=>Auth::user(),'products'=>$products]);
   
-        return $pdf->download('itsolutionstuff.pdf');
+        // return $pdf->download('Egermatt.pdf');
     }
 
+    public function printReports(){
+        return view('reports');
+    }
 
 }

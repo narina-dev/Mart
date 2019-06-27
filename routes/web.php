@@ -31,6 +31,9 @@ Route::post('api/messages/send', 'MessagesController@store');
 Route::get('/changePassword','HomeController@showChangePasswordForm')->name('changepassword');
 Route::post('update_user_profile', 'HomeController@updatePassword')->name('update_user_password');
 
+Route::get('generate-pdf','HomeController@generatePDF')->name('generate-pdf');
+Route::get('/printReports' , "HomeController@printReports");
+
 });
 
 
@@ -50,7 +53,9 @@ Route::get('/productView/{product}',"ProductsController@displayImages");
 
 Route::view('/posts',"seller.posts")->name('posts');
 
-Route::get('generate-pdf','HomeController@generatePDF');
+Route::view('/help',"help.help");
+
+
 
 
 

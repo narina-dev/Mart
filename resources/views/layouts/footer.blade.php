@@ -32,7 +32,7 @@
                 <a href="#!">Terms And Conditions</a>
               </p>
               <p>
-                <a href="#!">Help</a>
+                <a href="help">Help</a>
               </p>
               <p>
                 <a href="#!">Support</a>

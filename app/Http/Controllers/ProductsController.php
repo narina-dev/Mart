@@ -79,7 +79,7 @@ class ProductsController extends Controller
         }
         // });
 
-        return back();
+        return redirect()->back()->with('msg','Upload succesfull!');
     }
     public function displayProducts()
     {
@@ -154,6 +154,7 @@ class ProductsController extends Controller
         return view('welcome')->with('products',$products)->with('categories',Category::all());
 
     }
+    
     
     public function searchProduct(Request $request){
 

@@ -54,9 +54,8 @@
                 <div class="col-md-4 mb-2">
                     <div class="card m-0 p-0">
                         <a href="{{url('productView/'.$product->id)}}">
-                            <img src="{{ '/images/'.$product->images[0]->url }}" class="card-img-top" alt="..."
-                                height="200">
-                        </a>
+                             <img src="{{ '/images/'.$product->images[0]->url }}" class="card-img-top" alt="..."
+                                height="200">                         </a>
                         <div class="m-0 p-2" style="background-color:#2f353a;">
                             <div class="m-0 pb-0 d-inline-block" style="color:white">{{ $product->name}}</div>
                             <div class="m-0 pb-0 float-right"><span

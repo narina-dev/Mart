@@ -76,6 +76,9 @@
                             <a class="nav-link" href="{{route('posts')}}">My Posts</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{route('generate-pdf')}}">Generate report</a>
+                        </li>
+                        <li class="nav-item">
                                 <a class="nav-link" href="{{route('changepassword')}}">Change Password</a>
                             </li>
 

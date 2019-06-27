@@ -80,6 +80,7 @@
                     {{ $product->location}}
                 </p>
             </p>
+            {{-- <a href="{{url('printReports')}}"  class="btn btn-primary"> View Profile </a> --}}
             <div>
             <a href="{{url('home')}}">
                 <i class="fa fa-2x fa-commenting" aria-hidden="true"></i>
